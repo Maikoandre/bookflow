@@ -1,64 +1,64 @@
-# Bookflow - Database Project
+# Bookflow - Projeto de Banco de Dados
 
-This project implements a database schema for a bookstore management system called "Bookflow". It includes tables for managing books, customers, orders, and more. The project also features views, stored procedures, functions, and triggers to support various functionalities of the application.
+Este projeto implementa um esquema de banco de dados para um sistema de gerenciamento de livraria chamado "Bookflow". Ele inclui tabelas para gerenciar livros, clientes, pedidos e muito mais. O projeto também apresenta views, stored procedures, funções e triggers para dar suporte a várias funcionalidades do aplicativo.
 
-## Database Schema
+## Esquema do Banco de Dados
 
-The database is named `Bookflow` and uses the `utf8mb4` character set.
+O banco de dados é chamado `Bookflow` e usa o conjunto de caracteres `utf8mb4`.
 
-### Tables
+### Tabelas
 
-* **Categorias**: Stores book categories.
-* **Livros**: Contains information about the books, including title, author, ISBN, price, and stock quantity.
-* **Autores**: Stores information about the authors.
-* **Editoras**: Contains the names of the publishers.
-* **Clientes**: Manages customer data, such as name, email, and address.
-* **Pedidos**: Stores customer orders, including order date and status.
-* **Itens_Pedido**: Contains the individual items for each order.
-* **Carrinho**: Manages the items in each customer's shopping cart.
+* **Categorias**: Armazena as categorias dos livros.
+* **Livros**: Contém informações sobre os livros, incluindo título, autor, ISBN, preço e quantidade em estoque.
+* **Autores**: Armazena informações sobre os autores.
+* **Editoras**: Contém os nomes das editoras.
+* **Clientes**: Gerencia os dados dos clientes, como nome, e-mail e endereço.
+* **Pedidos**: Armazena os pedidos dos clientes, incluindo a data e o status do pedido.
+* **Itens_Pedido**: Contém os itens individuais de cada pedido.
+* **Carrinho**: Gerencia os itens no carrinho de compras de cada cliente.
 
-## Features
+## Funcionalidades
 
 ### Views
 
-* `vw_livros_mais_vendidos`: A view that lists the best-selling books.
-* `vw_estoque_baixo`: Shows books with low stock (less than 10 units).
-* `vw_clientes_ativos`: Lists customers who have placed an order in the last 6 months.
-* `vw_relatorio_vendas`: A sales report grouped by category and author.
+* `vw_livros_mais_vendidos`: Uma view que lista os livros mais vendidos.
+* `vw_estoque_baixo`: Mostra livros com estoque baixo (menos de 10 unidades).
+* `vw_clientes_ativos`: Lista os clientes que fizeram um pedido nos últimos 6 meses.
+* `vw_relatorio_vendas`: Um relatório de vendas agrupado por categoria e autor.
 
 ### Stored Procedures
 
-* `cadastrar_cliente`: Registers a new customer.
-* `atualizar_cliente`: Updates a customer's information.
-* `excluir_cliente`: Deletes a customer.
-* `criar_pedido`: Creates a new order for a customer.
-* `adicionar_item_pedido`: Adds a book to an order and updates the stock.
-* `atualizar_status_pedido`: Updates the status of an order.
+* `cadastrar_cliente`: Cadastra um novo cliente.
+* `atualizar_cliente`: Atualiza as informações de um cliente.
+* `excluir_cliente`: Exclui um cliente.
+* `criar_pedido`: Cria um novo pedido para um cliente.
+* `adicionar_item_pedido`: Adiciona um livro a um pedido e atualiza o estoque.
+* `atualizar_status_pedido`: Atualiza o status de um pedido.
 
-### Functions
+### Funções
 
-* `login_cliente`: Validates a customer's login credentials.
-* `recuperar_senha`: Retrieves a customer's password.
-* `calcular_total_pedido`: Calculates the total cost of an order, including shipping and taxes.
+* `login_cliente`: Valida as credenciais de login de um cliente.
+* `recuperar_senha`: Recupera a senha de um cliente.
+* `calcular_total_pedido`: Calcula o custo total de um pedido, incluindo frete e taxas.
 
 ### Triggers
 
-* `verificar_estoque`: A trigger that checks if there is enough stock before adding a book to an order.
+* `verificar_estoque`: Um trigger que verifica se há estoque suficiente antes de adicionar um livro a um pedido.
 
-### Indexes
+### Índices
 
-The database includes several indexes on the tables to improve query performance, especially on foreign keys and frequently filtered columns.
+O banco de dados inclui vários índices nas tabelas para melhorar o desempenho das consultas, especialmente em chaves estrangeiras e colunas frequentemente filtradas.
 
-## How to Use
+## Como Usar
 
-1.  **Database Setup**: Execute the `Database/Tables.sql` script to create the database and tables, and to insert the initial data.
-2.  **Install Additional Features**: Run the scripts in the `Database` folder to create the views, procedures, functions, triggers, and indexes.
+1.  **Configuração do Banco de Dados**: Execute o script `Database/Tables.sql` para criar o banco de dados e as tabelas, e para inserir os dados iniciais.
+2.  **Instalação de Funcionalidades Adicionais**: Execute os scripts na pasta `Database` para criar as views, procedures, funções, triggers e índices.
 
-## Sample Queries
+## Consultas de Exemplo
 
-The `Database/Tables.sql` file also contains several sample `SELECT` queries that demonstrate how to retrieve information from the database, such as:
+O arquivo `Database/Tables.sql` também contém várias consultas `SELECT` de exemplo que demonstram como recuperar informações do banco de dados, tais como:
 
-* Selecting books with a price above a certain value.
-* Listing books from a specific category.
-* Finding orders with a specific status.
-* Calculating the total value of an order.
+* Selecionar livros com preço acima de um determinado valor.
+* Listar livros de uma categoria específica.
+* Encontrar pedidos com um status específico.
+* Calcular o valor total de um pedido.
